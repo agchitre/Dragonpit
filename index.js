@@ -151,6 +151,7 @@ const messageSentCallback = function(result) {
 function dragonroar() {  
     roar.play(); 
     animateScript(); 
+    document.getElementById("image").style.visibility = "hidden"
     //stopAnimate();
 }
 
