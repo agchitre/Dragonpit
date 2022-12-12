@@ -131,7 +131,8 @@ function messageReceivedCallback(message) {
   printDebug(message);
   if(message.userSpeech =='roar')
   {
-    dragonroar();
+    
+    ();
   }
 }
 
@@ -151,7 +152,7 @@ const messageSentCallback = function(result) {
 function dragonroar() {  
     roar.play(); 
     animateScript(); 
-    document.getElementById("image").style.visibility = "hidden"
+    //document.getElementById("image").style.visibility = "hidden"
     //stopAnimate();
 }
 
