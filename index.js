@@ -4,8 +4,8 @@
 
 
 const debugElement = document.getElementById('debugElement');
-const frameHeight = 102;
-const frames = 15;
+const frameHeight = 200;
+const frames = 200;
 const divDragon = document.getElementById("dragon");
 let frame = 0;
 /**
