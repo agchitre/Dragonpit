@@ -215,7 +215,7 @@ var tID; //we will use this variable to clear the setInterval()
 
 function stopAnimate() {
   clearInterval(tID);
-  document.getElementById("image").style.visibility = 'hidden'; 
+  document.getElementById("image").style.visibility = "hidden"; 
 
 } //end of stopAnimate()
 
@@ -224,7 +224,7 @@ function animateScript() {
   var position = 256; //start position for the image slicer
   const interval = 100; //100 ms of interval for the setInterval()
   const diff = 256; //diff as a variable for position offset
-  document.getElementById("image").style.visibility = 'visible'; 
+  document.getElementById("image").style.visibility = "visible"; 
   tID = setInterval(() => {
   
     document.getElementById("image").style.backgroundPosition =
