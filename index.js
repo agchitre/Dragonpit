@@ -4,6 +4,10 @@
 
 
 const debugElement = document.getElementById('debugElement');
+const frameHeight = 102;
+const frames = 15;
+const divDragon = document.getElementById("dragon");
+let frame = 0;
 /**
  * Append text or any object that can be stringified to the debug element
  * @param {any} msg 
@@ -77,6 +81,10 @@ function messageReceivedCallback(message) {
   // Process message (JavaScript object) from your skill
   printDebug('received a message from the skill endpoint');
   printDebug(message);
+  if(message =='fly')
+  {
+    dragonFly();
+  }
 }
 
 /**
@@ -91,6 +99,14 @@ const messageSentCallback = function(result) {
     }
     printDebug(result);
 };
+
+function dragonFly() {
+    setInterval(function () {
+        const frameOffset = (++frame % frames) * -frameHeight;
+        divDragon.style.backgroundPosition = "0px " + frameOffset + "px";
+    }, 100);
+       
+}
 
 /**
  * Wraps sending a message to your skill backend 
