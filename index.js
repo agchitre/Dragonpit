@@ -13,6 +13,8 @@ const width = 200;
 const height = 200;
 const scaledWidth = scale * width;
 const scaledHeight = scale * height;
+var roar = new Audio('roar.mp3');
+
 
 let img = new Image();
 img.src = 'dragon.png';
@@ -49,6 +51,7 @@ function step() {
 
 function init() {
     window.requestAnimationFrame(step);
+   
   }
 
 
@@ -125,9 +128,9 @@ function messageReceivedCallback(message) {
   // Process message (JavaScript object) from your skill
   printDebug('received a message from the skill endpoint');
   printDebug(message);
-  if(message.userSpeech =='fly')
+  if(message.userSpeech =='roar')
   {
-    dragonFly();
+    dragonroar();
   }
 }
 
@@ -144,7 +147,8 @@ const messageSentCallback = function(result) {
     printDebug(result);
 };
 
-function dragonFly() {    
+function dragonroar() {  
+    roar.play();  
 }
 
 /**
