@@ -30,6 +30,7 @@ let alexaClient;
 let wakeWord = "Alexa";
 
 function beginApp() {
+    dragonFly()
 printDebug('Beginning Alexa.create');
 Alexa.create({version: '1.1'})
     .then((args) => {
