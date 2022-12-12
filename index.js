@@ -14,6 +14,7 @@ const height = 200;
 const scaledWidth = scale * width;
 const scaledHeight = scale * height;
 var roar = new Audio('roar.mp3');
+document.getElementById("image").style.visibility = "hidden"
 
 
 let img = new Image();
