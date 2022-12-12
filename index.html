@@ -80,6 +80,9 @@
     height: 102px; 
     width: 140px; 
     }
+    canvas {
+    border: 1px solid black;
+    }
   </style>
 
 </head>
@@ -87,17 +90,18 @@
 <body>
   <embed src="backgroundMusic.mp3" loop="true" autostart="true" width="2" height="0">
   <h1>
-    Hello World
+    Dragon Pit
   </h1>
 
   <div id="interactions">
-    <div id="helloButton" class="button">Send "Hello" to the skill backend</div>
-    <div id="micButton" class="button">Try to open the microphone</div>
+    <div id="helloButton" class="button" style="visibility: hidden">Send "Hello" to the skill backend</div>
+    <div id="micButton" class="button" style="visibility: hidden">Try to open the microphone</div>
  
     <div id="hints"></div>
   </div>
-  <div id="dragon"></div>
-  <div id="debugElement"></div>
+  <canvas width="300" height="300"></canvas>
+  
+  <div id="debugElement" style="visibility: hidden"></div>
 
   <script src="https://cdn.html.games.alexa.a2z.com/alexa-html/latest/alexa-html.js"></script>
   <script src="./index.js"></script>
