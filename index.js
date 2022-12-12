@@ -8,6 +8,50 @@ const frameHeight = 480;
 const frames = 4;
 const divDragon = document.getElementById("dragon");
 let frame = 0;
+const scale = 2;
+const width = 200;
+const height = 200;
+const scaledWidth = scale * width;
+const scaledHeight = scale * height;
+
+let img = new Image();
+img.src = 'dragon.png';
+img.onload = function() {
+  init();
+};
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
+function drawFrame(frameX, frameY, canvasX, canvasY) {
+    ctx.drawImage(img,
+                  frameX * width, frameY * height, width, height,
+                  canvasX, canvasY, scaledWidth, scaledHeight);
+  }
+
+const cycleLoop = [0, 1, 0, 2];
+let currentLoopIndex = 0;
+let frameCount = 0;
+
+function step() {
+  frameCount++;
+  if (frameCount < 15) {
+    window.requestAnimationFrame(step);
+    return;
+  }
+  frameCount = 0;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawFrame(cycleLoop[currentLoopIndex], 0, 0, 0);
+  currentLoopIndex++;
+  if (currentLoopIndex >= cycleLoop.length) {
+    currentLoopIndex = 0;
+  }
+  window.requestAnimationFrame(step);
+}
+
+function init() {
+    window.requestAnimationFrame(step);
+  }
+
+
 /**
  * Append text or any object that can be stringified to the debug element
  * @param {any} msg 
@@ -30,7 +74,6 @@ let alexaClient;
 let wakeWord = "Alexa";
 
 function beginApp() {
-    dragonFly()
 printDebug('Beginning Alexa.create');
 Alexa.create({version: '1.1'})
     .then((args) => {
@@ -82,7 +125,7 @@ function messageReceivedCallback(message) {
   // Process message (JavaScript object) from your skill
   printDebug('received a message from the skill endpoint');
   printDebug(message);
-  if(message =='fly')
+  if(message.userSpeech =='fly')
   {
     dragonFly();
   }
@@ -101,12 +144,7 @@ const messageSentCallback = function(result) {
     printDebug(result);
 };
 
-function dragonFly() {
-    setInterval(function () {
-        const frameOffset = (++frame % frames) * -frameHeight;
-        divDragon.style.backgroundPosition = "0px " + frameOffset + "px";
-    }, 100);
-       
+function dragonFly() {    
 }
 
 /**
