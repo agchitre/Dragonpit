@@ -1,4 +1,4 @@
-<!-- 
+x<!-- 
   Copyright 2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
   SPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0
   Licensed under the Amazon Software License  http://aws.amazon.com/asl/
@@ -81,8 +81,17 @@
     width: 140px; 
     }
     canvas {
-    border: transparent;
+        border:transparent;
     }
+    #image {
+    position: absolute;
+    top: 55vh;    
+    height: 80px;
+    width: 126px;
+    border:none;
+    background: url('firesprite.png') 0px 0px;
+    visibility: hidden;
+}
   </style>
 
 </head>
@@ -99,7 +108,11 @@
  
     <div id="hints" style="visibility: hidden"></div>
   </div>
-  <canvas width="300" height="300"></canvas>
+  
+  <div>
+    <canvas width="270" height="300" style="float: left;" ></canvas>
+    <img id="image" style="float: left;">
+</div>
   
   <div id="debugElement" style="visibility: hidden"></div>
 
