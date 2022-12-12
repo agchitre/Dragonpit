@@ -14,7 +14,7 @@ const height = 200;
 const scaledWidth = scale * width;
 const scaledHeight = scale * height;
 var roar = new Audio('roar.mp3');
-document.getElementById("image").style.visibility = "hidden"
+//document.getElementById("image").style.visibility = "hidden"
 
 
 let img = new Image();
@@ -131,8 +131,7 @@ function messageReceivedCallback(message) {
   printDebug(message);
   if(message.userSpeech =='roar')
   {
-    
-    ();
+    dragonroar();
   }
 }
 
@@ -151,7 +150,7 @@ const messageSentCallback = function(result) {
 
 function dragonroar() {  
     roar.play(); 
-    animateScript(); 
+    //animateScript(); 
     //document.getElementById("image").style.visibility = "hidden"
     //stopAnimate();
 }
